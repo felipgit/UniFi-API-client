@@ -3088,6 +3088,22 @@ class Client
     }
 
     /**
+     * Update port profile settings, base (using REST)
+     *
+     * @param  string       $profile_id the "_id" value for the network profile which can be found with the list_networkconf() function
+     * @param  object|array $payload    stdClass object or associative array containing the configuration to apply to the network profile,
+     *                                  must be a (partial) object/array structured in the same manner as is returned by list_networkconf()
+     *                                  for the profile.
+     * @return bool                     true on success
+     */
+    public function set_portconf_base($profile_id, $payload)
+    {
+        $this->request_method = 'PUT';
+
+        return $this->fetch_results_boolean('/api/s/' . $this->site . '/rest/portconf/' . trim($profile_id), $payload);
+    }
+
+    /**
      * Custom API request
      *
      * NOTE:
