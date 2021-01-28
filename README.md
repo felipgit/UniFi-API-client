@@ -1,3 +1,8 @@
+## Fork Information
+Based of [**Art-of-Wifi/UniFi-API-client**](https://github.com/Art-of-WiFi/UniFi-API-client).
+Added few functions for VLAN management (add network and set native/tagged VLAN).
+Will try to add functions for switch management too.
+
 ## UniFi Controller API client class
 
 A PHP class that provides access to Ubiquiti's [**UniFi Network Controller**](https://unifi-network.ui.com/) API, versions 4.X.X, 5.X.X and 6.0.X of the UniFi Network Controller software are supported (version 6.0.43 has been confirmed to work) as well as UniFi OS-based controllers (version 5.12.59 has been confirmed to work). This class is used by our API browser tool which can be found [here](https://github.com/Art-of-WiFi/UniFi-API-browser).
