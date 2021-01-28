@@ -3138,6 +3138,31 @@ class Client
     }
 
     /**
+     * Create a VLAN only network, busing create_network as base but simpler function for just adding an active VLAN.
+     *
+     * @param string vlan_name the "name" for the network which can be found with the list_networkconf() function
+     * @param string vlan_id   should be a string containing the vlan number, even though it could be an integer, but as the unifi interface
+     *                         sends it as a string we should do the same.
+     * @return bool            true on success
+     */
+    public function create_vlan_network($vlan_name, $vlan_id)
+    {
+        if (!is_string($vlan_id)){
+            return false;
+        }
+        $payload = [];
+        $payload = [
+            'purpose' => 'vlan-only',
+            'name' => $vlan_name,
+            'vlan' => $vlan_id,
+            'enabled' => true,
+            'is_nat' => true,
+            'vlan_enabled' => true
+        ];
+        return $this->create_network($payload);
+    }
+
+    /**
      * Custom API request
      *
      * NOTE:
