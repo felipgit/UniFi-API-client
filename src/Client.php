@@ -3119,7 +3119,24 @@ class Client
         $payload['native_networkconf_id'] = $vlan_id;
         return $this->set_portconf_base($profile_id, $payload);
     }
-    
+
+    /**
+     * Set the native (untagged) VLAN of a switch profile
+     *
+     * @param string       profile_id the "_id" the "_id" value for the network port profile which can be found with the list_networkconf() function
+     * @param object|array vlan_id    the "_id" values for each VLAN to add as tagged, should be array of strings.
+     * @return bool                   true on success
+     */
+    public function set_vlan_tagging($profile_id, $vlan_id)
+    {
+        if (!is_array($vlan_id)){
+            return false;
+        }
+        $payload = [];
+        $payload['tagged_networkconf_ids'] = $vlan_id;
+        return $this->set_portconf_base($profile_id, $payload);
+    }
+
     /**
      * Custom API request
      *
