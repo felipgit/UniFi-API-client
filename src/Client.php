@@ -3104,6 +3104,23 @@ class Client
     }
 
     /**
+     * Set the native (untagged) VLAN of a switch profile
+     *
+     * @param string profile_id the "_id" the "_id" value for the network profile which can be found with the list_networkconf() function
+     * @param string vlan_id    the "_id" value for the VLAN
+     * @return bool             true on success
+     */
+    public function set_vlan_native($profile_id, $vlan_id)
+    {
+        if (!is_string($vlan_id)){
+            return false;
+        }
+        $payload = [];
+        $payload['native_networkconf_id'] = $vlan_id;
+        return $this->set_portconf_base($profile_id, $payload);
+    }
+    
+    /**
      * Custom API request
      *
      * NOTE:
