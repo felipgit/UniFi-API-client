@@ -3098,7 +3098,7 @@ class Client
      */
     public function set_portconf_base($profile_id, $payload)
     {
-        $this->request_method = 'PUT';
+        $this->request_method = 'POST';
 
         return $this->fetch_results_boolean('/api/s/' . $this->site . '/rest/portconf/' . trim($profile_id), $payload);
     }
