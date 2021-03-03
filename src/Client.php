@@ -2485,7 +2485,7 @@ class Client
      */
     public function create_network($payload)
     {
-        return $this->fetch_results('/api/s/' . $this->site . '/rest/networkconf', $payload);
+        return $this->fetch_results_boolean('/api/s/' . $this->site . '/rest/networkconf', $payload);
     }
 
     /**
